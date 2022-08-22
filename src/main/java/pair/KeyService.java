@@ -21,10 +21,15 @@ public class KeyService {
      * @return значение
      */
     public BigInteger getHash(Pair pair) {
+
         StringBuilder numberString = findNumbers(pair.getFirstKey());
         numberString.append(findNumbers(pair.getSecondKey()));
 
-        return new BigInteger(String.valueOf(numberString));
+        if (numberString.length() != 0) {
+            return new BigInteger(String.valueOf(numberString));
+        }
+
+        return BigInteger.ZERO;
     }
 
     /**
