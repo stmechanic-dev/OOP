@@ -17,22 +17,20 @@ public class KeyService {
     /**
      * Метод берет два ключа, отбирает из этих ключей только цифры, образуя из них значение
      * объединяет 1-ый ключ с 2-ым в огромное число и возвращает его.
+     *
      * @param pair пара ключей
-     * @return значение
+     * @return значение BigInteger
      */
     public BigInteger getHash(Pair pair) {
 
         String numbersString = findNumbers(pair.getFirstKey() + pair.getSecondKey());
 
-        if (numbersString.length() != 0) {
-            return new BigInteger(numbersString);
-        }
-
-        return BigInteger.ZERO;
+        return numbersString.length() != 0 ? new BigInteger(numbersString) : BigInteger.ZERO;
     }
 
     /**
      * Этот метод сравнивает сопоставление переданных символов с массивом символов(цифр)
+     *
      * @param element - передаем символ для сравнения
      * @return - возвращает true сли сопоставление найдено
      */
@@ -47,8 +45,9 @@ public class KeyService {
 
     /**
      * Этот метод возвращает строку с необходимыми нам параметрами символов - цифр
+     *
      * @param string - входящий параметр строки
-     * @return возвращает объект StringBuilder, составленный из искомых символов - цифр
+     * @return возвращает объект String, составленный из искомых символов - цифр
      */
     private String findNumbers(String string) {
         StringBuilder stringBuilder = new StringBuilder();
