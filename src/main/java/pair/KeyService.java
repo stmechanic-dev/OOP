@@ -22,11 +22,10 @@ public class KeyService {
      */
     public BigInteger getHash(Pair pair) {
 
-        StringBuilder numberString = findNumbers(pair.getFirstKey());
-        numberString.append(findNumbers(pair.getSecondKey()));
+        String numbersString = findNumbers(pair.getFirstKey() + pair.getSecondKey());
 
-        if (numberString.length() != 0) {
-            return new BigInteger(String.valueOf(numberString));
+        if (numbersString.length() != 0) {
+            return new BigInteger(numbersString);
         }
 
         return BigInteger.ZERO;
@@ -51,7 +50,7 @@ public class KeyService {
      * @param string - входящий параметр строки
      * @return возвращает объект StringBuilder, составленный из искомых символов - цифр
      */
-    private StringBuilder findNumbers(String string) {
+    private String findNumbers(String string) {
         StringBuilder stringBuilder = new StringBuilder();
         for (char simbol : string.toCharArray()) {
             if (contains(simbol)) {
@@ -59,6 +58,6 @@ public class KeyService {
             }
         }
 
-        return stringBuilder;
+        return String.valueOf(stringBuilder);
     }
 }
