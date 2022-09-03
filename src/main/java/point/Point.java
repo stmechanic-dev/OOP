@@ -19,6 +19,14 @@ public class Point {
         return yCoordinate;
     }
 
+    public double distance(Point toPoint) {
+
+        double calculate = Math.pow(toPoint.getxCoordinate() - this.xCoordinate, 2) +
+                            Math.pow(toPoint.getyCoordinate() - this.yCoordinate, 2);
+
+        return Math.sqrt(calculate);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
