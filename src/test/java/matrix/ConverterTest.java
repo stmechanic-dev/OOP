@@ -1,7 +1,8 @@
 package matrix;
 
-import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+
 import java.util.List;
 
 public class ConverterTest {
@@ -19,7 +20,7 @@ public class ConverterTest {
         List<Integer> result = converter.convertToList(matrix);
         List<Integer> expected = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9);
 
-        Assert.assertEquals(expected, result);
+        Assertions.assertIterableEquals(expected, result);
     }
 
 }
