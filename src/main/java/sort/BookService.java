@@ -18,11 +18,12 @@ public class BookService {
 
         for (int i = 0; i < books.length - 1; i++)
         {
-            if (books[i].getCreatedYear() > books[i+1].getCreatedYear())
-            {
-                Book temp = books[i];
-                books[i] = books[i + 1];
-                books[i + 1] = temp;
+            for (int j = 0; j < books.length - 1; j ++) {
+                if (books[j].getCreatedYear() > books[j + 1].getCreatedYear()) {
+                    Book temp = books[j];
+                    books[j] = books[j + 1];
+                    books[j + 1] = temp;
+                }
             }
         }
         return books;
